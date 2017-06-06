@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Period] (
+    [Id]    INT           IDENTITY (1, 1) NOT NULL,
+    [start] DATETIME2 (7) NOT NULL,
+    [end]   DATETIME2 (7) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+

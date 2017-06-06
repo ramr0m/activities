@@ -11,6 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityTester", "ActivityT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Activity.Web", "Activity.Web\Activity.Web.csproj", "{0326D8F4-A896-475C-93C0-CE2966DB5677}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{2018C2EB-7ADC-4ECF-A785-0D6B2204CADC}"
+	ProjectSection(SolutionItems) = preProject
+		db\dbo.Activity.sql = db\dbo.Activity.sql
+		db\dbo.ActivitySlot.sql = db\dbo.ActivitySlot.sql
+		db\dbo.Enrollment.sql = db\dbo.Enrollment.sql
+		db\dbo.Period.sql = db\dbo.Period.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
