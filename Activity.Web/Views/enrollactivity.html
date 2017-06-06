@@ -1,0 +1,27 @@
+﻿<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><h1>Inschrijven voor {{selectedActivity.name}}</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">{{selectedActivity.description}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="slots_{{selectedActivity.id}}">
+                    <div ng-repeat="slot in selectedActivity.slots | orderBy:slot.start">
+                        <div class="radio">
+                            <label><input type="radio" name="{{selectedActivity.id}}_opt" ng-click="selectSlot(slot)">{{slot.start | date:'HH:mm'}} - {{slot.end | date:'HH:mm'}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">Details</div>
+        </div>
+        <div class="row">
+            <a class="btn btn-small" role="button" title="Sla keuze op" ng-click="addEnrollment(selectedActivity.id)">
+                <i class="fa fa-save"></i>
+            </a>
+        </div>
+    </div>
+</div>

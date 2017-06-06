@@ -1,0 +1,1173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0326D8F4-A896-475C-93C0-CE2966DB5677}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Activity.Web</RootNamespace>
+    <AssemblyName>Activity.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="index.html" />
+    <Content Include="scripts\activityController.js" />
+    <Content Include="scripts\app.js" />
+    <Content Include="scripts\css\Navigation-Clean1.css" />
+    <Content Include="scripts\css\styles.css" />
+    <Content Include="scripts\extern\js\angular-route\angular-route.js" />
+    <Content Include="scripts\extern\js\angular-route\angular-route.min.js" />
+    <Content Include="scripts\extern\js\angular-route\index.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\karma.conf.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\migrate\migratewarn.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\angular-ui-router.min.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\resolveService.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\resolveService.min.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\stateEvents.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\stateEvents.min.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\ui-router-angularjs.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\ui-router-angularjs.min.js" />
+    <Content Include="scripts\extern\js\angular-ui-router\rollup.config.js" />
+    <Content Include="scripts\extern\js\angular\angular-csp.css" />
+    <Content Include="scripts\extern\js\angular\angular.js" />
+    <Content Include="scripts\extern\js\angular\angular.min.js" />
+    <Content Include="scripts\extern\js\angular\index.js" />
+    <Content Include="scripts\extern\js\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="scripts\extern\js\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="scripts\extern\js\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="scripts\extern\js\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="scripts\extern\js\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="scripts\extern\js\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="scripts\extern\js\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="scripts\extern\js\bootstrap\dist\js\npm.js" />
+    <Content Include="scripts\extern\js\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="scripts\extern\js\bootstrap\Gruntfile.js" />
+    <Content Include="scripts\extern\js\bootstrap\grunt\bs-commonjs-generator.js" />
+    <Content Include="scripts\extern\js\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="scripts\extern\js\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="scripts\extern\js\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="scripts\extern\js\bootstrap\grunt\change-version.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\affix.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\alert.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\button.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\carousel.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\collapse.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\dropdown.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\modal.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\popover.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\scrollspy.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\tab.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\tooltip.js" />
+    <Content Include="scripts\extern\js\bootstrap\js\transition.js" />
+    <Content Include="scripts\extern\js\bootstrap\package.js" />
+    <Content Include="scripts\extern\js\bourbon\eyeglass-exports.js" />
+    <Content Include="scripts\extern\js\bourbon\index.js" />
+    <Content Include="scripts\extern\js\font-awesome\css\font-awesome.css" />
+    <Content Include="scripts\extern\js\font-awesome\css\font-awesome.min.css" />
+    <Content Include="scripts\extern\js\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="scripts\extern\js\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="scripts\extern\js\jquery\AUTHORS.txt" />
+    <Content Include="scripts\extern\js\jquery\dist\core.js" />
+    <Content Include="scripts\extern\js\jquery\dist\jquery.js" />
+    <Content Include="scripts\extern\js\jquery\dist\jquery.min.js" />
+    <Content Include="scripts\extern\js\jquery\dist\jquery.slim.js" />
+    <Content Include="scripts\extern\js\jquery\dist\jquery.slim.min.js" />
+    <Content Include="scripts\extern\js\jquery\external\sizzle\dist\sizzle.js" />
+    <Content Include="scripts\extern\js\jquery\external\sizzle\dist\sizzle.min.js" />
+    <Content Include="scripts\extern\js\jquery\external\sizzle\LICENSE.txt" />
+    <Content Include="scripts\extern\js\jquery\LICENSE.txt" />
+    <Content Include="scripts\extern\js\jquery\src\ajax.js" />
+    <Content Include="scripts\extern\js\jquery\src\ajax\jsonp.js" />
+    <Content Include="scripts\extern\js\jquery\src\ajax\load.js" />
+    <Content Include="scripts\extern\js\jquery\src\ajax\parseXML.js" />
+    <Content Include="scripts\extern\js\jquery\src\ajax\script.js" />
+    <Content Include="scripts\extern\js\jquery\src\ajax\var\location.js" />
+    <Content Include="scripts\extern\js\jquery\src\ajax\var\nonce.js" />
+    <Content Include="scripts\extern\js\jquery\src\ajax\var\rquery.js" />
+    <Content Include="scripts\extern\js\jquery\src\ajax\xhr.js" />
+    <Content Include="scripts\extern\js\jquery\src\attributes.js" />
+    <Content Include="scripts\extern\js\jquery\src\attributes\attr.js" />
+    <Content Include="scripts\extern\js\jquery\src\attributes\classes.js" />
+    <Content Include="scripts\extern\js\jquery\src\attributes\prop.js" />
+    <Content Include="scripts\extern\js\jquery\src\attributes\support.js" />
+    <Content Include="scripts\extern\js\jquery\src\attributes\val.js" />
+    <Content Include="scripts\extern\js\jquery\src\callbacks.js" />
+    <Content Include="scripts\extern\js\jquery\src\core.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\access.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\DOMEval.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\init.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\nodeName.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\parseHTML.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\ready-no-deferred.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\ready.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\readyException.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\stripAndCollapse.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\support.js" />
+    <Content Include="scripts\extern\js\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="scripts\extern\js\jquery\src\css.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\addGetHookIf.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\adjustCSS.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\curCSS.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\showHide.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\support.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\var\cssExpand.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\var\getStyles.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\var\isHiddenWithinTree.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\var\rmargin.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="scripts\extern\js\jquery\src\css\var\swap.js" />
+    <Content Include="scripts\extern\js\jquery\src\data.js" />
+    <Content Include="scripts\extern\js\jquery\src\data\Data.js" />
+    <Content Include="scripts\extern\js\jquery\src\data\var\acceptData.js" />
+    <Content Include="scripts\extern\js\jquery\src\data\var\dataPriv.js" />
+    <Content Include="scripts\extern\js\jquery\src\data\var\dataUser.js" />
+    <Content Include="scripts\extern\js\jquery\src\deferred.js" />
+    <Content Include="scripts\extern\js\jquery\src\deferred\exceptionHook.js" />
+    <Content Include="scripts\extern\js\jquery\src\deprecated.js" />
+    <Content Include="scripts\extern\js\jquery\src\dimensions.js" />
+    <Content Include="scripts\extern\js\jquery\src\effects.js" />
+    <Content Include="scripts\extern\js\jquery\src\effects\animatedSelector.js" />
+    <Content Include="scripts\extern\js\jquery\src\effects\Tween.js" />
+    <Content Include="scripts\extern\js\jquery\src\event.js" />
+    <Content Include="scripts\extern\js\jquery\src\event\ajax.js" />
+    <Content Include="scripts\extern\js\jquery\src\event\alias.js" />
+    <Content Include="scripts\extern\js\jquery\src\event\focusin.js" />
+    <Content Include="scripts\extern\js\jquery\src\event\support.js" />
+    <Content Include="scripts\extern\js\jquery\src\event\trigger.js" />
+    <Content Include="scripts\extern\js\jquery\src\exports\amd.js" />
+    <Content Include="scripts\extern\js\jquery\src\exports\global.js" />
+    <Content Include="scripts\extern\js\jquery\src\jquery.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation\buildFragment.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation\getAll.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation\setGlobalEval.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation\support.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation\var\rscriptType.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation\var\rtagName.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation\wrapMap.js" />
+    <Content Include="scripts\extern\js\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="scripts\extern\js\jquery\src\offset.js" />
+    <Content Include="scripts\extern\js\jquery\src\queue.js" />
+    <Content Include="scripts\extern\js\jquery\src\queue\delay.js" />
+    <Content Include="scripts\extern\js\jquery\src\selector-native.js" />
+    <Content Include="scripts\extern\js\jquery\src\selector-sizzle.js" />
+    <Content Include="scripts\extern\js\jquery\src\selector.js" />
+    <Content Include="scripts\extern\js\jquery\src\serialize.js" />
+    <Content Include="scripts\extern\js\jquery\src\traversing.js" />
+    <Content Include="scripts\extern\js\jquery\src\traversing\findFilter.js" />
+    <Content Include="scripts\extern\js\jquery\src\traversing\var\dir.js" />
+    <Content Include="scripts\extern\js\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="scripts\extern\js\jquery\src\traversing\var\siblings.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\arr.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\class2type.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\concat.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\document.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\documentElement.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\fnToString.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\getProto.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\hasOwn.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\indexOf.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\ObjectFunctionString.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\pnum.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\push.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\rcssNum.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\rnothtmlwhite.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\slice.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\support.js" />
+    <Content Include="scripts\extern\js\jquery\src\var\toString.js" />
+    <Content Include="scripts\extern\js\jquery\src\wrap.js" />
+    <Content Include="scripts\extern\js\lumx\changelog.py" />
+    <Content Include="scripts\extern\js\lumx\core\js\lumx.js" />
+    <Content Include="scripts\extern\js\lumx\core\js\utils\depth_service.js" />
+    <Content Include="scripts\extern\js\lumx\core\js\utils\event-scheduler_service.js" />
+    <Content Include="scripts\extern\js\lumx\core\js\utils\transclude-replace_directive.js" />
+    <Content Include="scripts\extern\js\lumx\core\js\utils\utils_service.js" />
+    <Content Include="scripts\extern\js\lumx\dist\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="scripts\extern\js\lumx\dist\lumx.css" />
+    <Content Include="scripts\extern\js\lumx\dist\lumx.js" />
+    <Content Include="scripts\extern\js\lumx\dist\lumx.min.js" />
+    <Content Include="scripts\extern\js\lumx\modules\button\js\button_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\button\views\button.html" />
+    <Content Include="scripts\extern\js\lumx\modules\button\views\link.html" />
+    <Content Include="scripts\extern\js\lumx\modules\checkbox\js\checkbox_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\checkbox\views\checkbox-help.html" />
+    <Content Include="scripts\extern\js\lumx\modules\checkbox\views\checkbox-label.html" />
+    <Content Include="scripts\extern\js\lumx\modules\checkbox\views\checkbox.html" />
+    <Content Include="scripts\extern\js\lumx\modules\data-table\js\data-table_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\data-table\js\data-table_service.js" />
+    <Content Include="scripts\extern\js\lumx\modules\data-table\views\data-table.html" />
+    <Content Include="scripts\extern\js\lumx\modules\date-picker\js\date-picker_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\date-picker\js\date-picker_service.js" />
+    <Content Include="scripts\extern\js\lumx\modules\date-picker\views\date-picker.html" />
+    <Content Include="scripts\extern\js\lumx\modules\dialog\js\dialog_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\dialog\js\dialog_service.js" />
+    <Content Include="scripts\extern\js\lumx\modules\dropdown\js\dropdown_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\dropdown\js\dropdown_service.js" />
+    <Content Include="scripts\extern\js\lumx\modules\dropdown\views\dropdown-menu.html" />
+    <Content Include="scripts\extern\js\lumx\modules\dropdown\views\dropdown-toggle.html" />
+    <Content Include="scripts\extern\js\lumx\modules\dropdown\views\dropdown.html" />
+    <Content Include="scripts\extern\js\lumx\modules\fab\js\fab_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\fab\views\fab-actions.html" />
+    <Content Include="scripts\extern\js\lumx\modules\fab\views\fab-trigger.html" />
+    <Content Include="scripts\extern\js\lumx\modules\fab\views\fab.html" />
+    <Content Include="scripts\extern\js\lumx\modules\file-input\js\file-input_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\file-input\views\file-input.html" />
+    <Content Include="scripts\extern\js\lumx\modules\icon\js\icon_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\icon\views\icon.html" />
+    <Content Include="scripts\extern\js\lumx\modules\notification\js\notification_service.js" />
+    <Content Include="scripts\extern\js\lumx\modules\progress\js\progress_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\progress\views\progress.html" />
+    <Content Include="scripts\extern\js\lumx\modules\radio-button\js\radio-button_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\radio-button\views\radio-button-help.html" />
+    <Content Include="scripts\extern\js\lumx\modules\radio-button\views\radio-button-label.html" />
+    <Content Include="scripts\extern\js\lumx\modules\radio-button\views\radio-button.html" />
+    <Content Include="scripts\extern\js\lumx\modules\radio-button\views\radio-group.html" />
+    <Content Include="scripts\extern\js\lumx\modules\ripple\js\ripple_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\search-filter\js\search-filter_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\search-filter\views\search-filter.html" />
+    <Content Include="scripts\extern\js\lumx\modules\select\js\select_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\select\views\select-choices.html" />
+    <Content Include="scripts\extern\js\lumx\modules\select\views\select-selected-content.html" />
+    <Content Include="scripts\extern\js\lumx\modules\select\views\select-selected.html" />
+    <Content Include="scripts\extern\js\lumx\modules\select\views\select.html" />
+    <Content Include="scripts\extern\js\lumx\modules\stepper\js\stepper_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\stepper\views\step-nav.html" />
+    <Content Include="scripts\extern\js\lumx\modules\stepper\views\step.html" />
+    <Content Include="scripts\extern\js\lumx\modules\stepper\views\stepper.html" />
+    <Content Include="scripts\extern\js\lumx\modules\switch\js\switch_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\switch\views\switch-help.html" />
+    <Content Include="scripts\extern\js\lumx\modules\switch\views\switch-label.html" />
+    <Content Include="scripts\extern\js\lumx\modules\switch\views\switch.html" />
+    <Content Include="scripts\extern\js\lumx\modules\tabs\js\tabs_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\tabs\views\tab-pane.html" />
+    <Content Include="scripts\extern\js\lumx\modules\tabs\views\tab.html" />
+    <Content Include="scripts\extern\js\lumx\modules\tabs\views\tabs-panes.html" />
+    <Content Include="scripts\extern\js\lumx\modules\tabs\views\tabs.html" />
+    <Content Include="scripts\extern\js\lumx\modules\text-field\js\text-field_directive.js" />
+    <Content Include="scripts\extern\js\lumx\modules\text-field\views\text-field.html" />
+    <Content Include="scripts\extern\js\lumx\modules\tooltip\js\tooltip_directive.js" />
+    <Content Include="scripts\extern\js\lumx\__init__.py" />
+    <Content Include="scripts\extern\js\mdi\css\materialdesignicons.css" />
+    <Content Include="scripts\extern\js\mdi\css\materialdesignicons.min.css" />
+    <Content Include="scripts\extern\js\mdi\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="scripts\extern\js\mdi\preview.html" />
+    <Content Include="scripts\extern\js\moment\locale\af.js" />
+    <Content Include="scripts\extern\js\moment\locale\ar-dz.js" />
+    <Content Include="scripts\extern\js\moment\locale\ar-kw.js" />
+    <Content Include="scripts\extern\js\moment\locale\ar-ly.js" />
+    <Content Include="scripts\extern\js\moment\locale\ar-ma.js" />
+    <Content Include="scripts\extern\js\moment\locale\ar-sa.js" />
+    <Content Include="scripts\extern\js\moment\locale\ar-tn.js" />
+    <Content Include="scripts\extern\js\moment\locale\ar.js" />
+    <Content Include="scripts\extern\js\moment\locale\az.js" />
+    <Content Include="scripts\extern\js\moment\locale\be.js" />
+    <Content Include="scripts\extern\js\moment\locale\bg.js" />
+    <Content Include="scripts\extern\js\moment\locale\bn.js" />
+    <Content Include="scripts\extern\js\moment\locale\bo.js" />
+    <Content Include="scripts\extern\js\moment\locale\br.js" />
+    <Content Include="scripts\extern\js\moment\locale\bs.js" />
+    <Content Include="scripts\extern\js\moment\locale\ca.js" />
+    <Content Include="scripts\extern\js\moment\locale\cs.js" />
+    <Content Include="scripts\extern\js\moment\locale\cv.js" />
+    <Content Include="scripts\extern\js\moment\locale\cy.js" />
+    <Content Include="scripts\extern\js\moment\locale\da.js" />
+    <Content Include="scripts\extern\js\moment\locale\de-at.js" />
+    <Content Include="scripts\extern\js\moment\locale\de-ch.js" />
+    <Content Include="scripts\extern\js\moment\locale\de.js" />
+    <Content Include="scripts\extern\js\moment\locale\dv.js" />
+    <Content Include="scripts\extern\js\moment\locale\el.js" />
+    <Content Include="scripts\extern\js\moment\locale\en-au.js" />
+    <Content Include="scripts\extern\js\moment\locale\en-ca.js" />
+    <Content Include="scripts\extern\js\moment\locale\en-gb.js" />
+    <Content Include="scripts\extern\js\moment\locale\en-ie.js" />
+    <Content Include="scripts\extern\js\moment\locale\en-nz.js" />
+    <Content Include="scripts\extern\js\moment\locale\eo.js" />
+    <Content Include="scripts\extern\js\moment\locale\es-do.js" />
+    <Content Include="scripts\extern\js\moment\locale\es.js" />
+    <Content Include="scripts\extern\js\moment\locale\et.js" />
+    <Content Include="scripts\extern\js\moment\locale\eu.js" />
+    <Content Include="scripts\extern\js\moment\locale\fa.js" />
+    <Content Include="scripts\extern\js\moment\locale\fi.js" />
+    <Content Include="scripts\extern\js\moment\locale\fo.js" />
+    <Content Include="scripts\extern\js\moment\locale\fr-ca.js" />
+    <Content Include="scripts\extern\js\moment\locale\fr-ch.js" />
+    <Content Include="scripts\extern\js\moment\locale\fr.js" />
+    <Content Include="scripts\extern\js\moment\locale\fy.js" />
+    <Content Include="scripts\extern\js\moment\locale\gd.js" />
+    <Content Include="scripts\extern\js\moment\locale\gl.js" />
+    <Content Include="scripts\extern\js\moment\locale\gom-latn.js" />
+    <Content Include="scripts\extern\js\moment\locale\he.js" />
+    <Content Include="scripts\extern\js\moment\locale\hi.js" />
+    <Content Include="scripts\extern\js\moment\locale\hr.js" />
+    <Content Include="scripts\extern\js\moment\locale\hu.js" />
+    <Content Include="scripts\extern\js\moment\locale\hy-am.js" />
+    <Content Include="scripts\extern\js\moment\locale\id.js" />
+    <Content Include="scripts\extern\js\moment\locale\is.js" />
+    <Content Include="scripts\extern\js\moment\locale\it.js" />
+    <Content Include="scripts\extern\js\moment\locale\ja.js" />
+    <Content Include="scripts\extern\js\moment\locale\jv.js" />
+    <Content Include="scripts\extern\js\moment\locale\ka.js" />
+    <Content Include="scripts\extern\js\moment\locale\kk.js" />
+    <Content Include="scripts\extern\js\moment\locale\km.js" />
+    <Content Include="scripts\extern\js\moment\locale\kn.js" />
+    <Content Include="scripts\extern\js\moment\locale\ko.js" />
+    <Content Include="scripts\extern\js\moment\locale\ky.js" />
+    <Content Include="scripts\extern\js\moment\locale\lb.js" />
+    <Content Include="scripts\extern\js\moment\locale\lo.js" />
+    <Content Include="scripts\extern\js\moment\locale\lt.js" />
+    <Content Include="scripts\extern\js\moment\locale\lv.js" />
+    <Content Include="scripts\extern\js\moment\locale\me.js" />
+    <Content Include="scripts\extern\js\moment\locale\mi.js" />
+    <Content Include="scripts\extern\js\moment\locale\mk.js" />
+    <Content Include="scripts\extern\js\moment\locale\ml.js" />
+    <Content Include="scripts\extern\js\moment\locale\mr.js" />
+    <Content Include="scripts\extern\js\moment\locale\ms-my.js" />
+    <Content Include="scripts\extern\js\moment\locale\ms.js" />
+    <Content Include="scripts\extern\js\moment\locale\my.js" />
+    <Content Include="scripts\extern\js\moment\locale\nb.js" />
+    <Content Include="scripts\extern\js\moment\locale\ne.js" />
+    <Content Include="scripts\extern\js\moment\locale\nl-be.js" />
+    <Content Include="scripts\extern\js\moment\locale\nl.js" />
+    <Content Include="scripts\extern\js\moment\locale\nn.js" />
+    <Content Include="scripts\extern\js\moment\locale\pa-in.js" />
+    <Content Include="scripts\extern\js\moment\locale\pl.js" />
+    <Content Include="scripts\extern\js\moment\locale\pt-br.js" />
+    <Content Include="scripts\extern\js\moment\locale\pt.js" />
+    <Content Include="scripts\extern\js\moment\locale\ro.js" />
+    <Content Include="scripts\extern\js\moment\locale\ru.js" />
+    <Content Include="scripts\extern\js\moment\locale\sd.js" />
+    <Content Include="scripts\extern\js\moment\locale\se.js" />
+    <Content Include="scripts\extern\js\moment\locale\si.js" />
+    <Content Include="scripts\extern\js\moment\locale\sk.js" />
+    <Content Include="scripts\extern\js\moment\locale\sl.js" />
+    <Content Include="scripts\extern\js\moment\locale\sq.js" />
+    <Content Include="scripts\extern\js\moment\locale\sr-cyrl.js" />
+    <Content Include="scripts\extern\js\moment\locale\sr.js" />
+    <Content Include="scripts\extern\js\moment\locale\ss.js" />
+    <Content Include="scripts\extern\js\moment\locale\sv.js" />
+    <Content Include="scripts\extern\js\moment\locale\sw.js" />
+    <Content Include="scripts\extern\js\moment\locale\ta.js" />
+    <Content Include="scripts\extern\js\moment\locale\te.js" />
+    <Content Include="scripts\extern\js\moment\locale\tet.js" />
+    <Content Include="scripts\extern\js\moment\locale\th.js" />
+    <Content Include="scripts\extern\js\moment\locale\tl-ph.js" />
+    <Content Include="scripts\extern\js\moment\locale\tlh.js" />
+    <Content Include="scripts\extern\js\moment\locale\tr.js" />
+    <Content Include="scripts\extern\js\moment\locale\tzl.js" />
+    <Content Include="scripts\extern\js\moment\locale\tzm-latn.js" />
+    <Content Include="scripts\extern\js\moment\locale\tzm.js" />
+    <Content Include="scripts\extern\js\moment\locale\uk.js" />
+    <Content Include="scripts\extern\js\moment\locale\ur.js" />
+    <Content Include="scripts\extern\js\moment\locale\uz-latn.js" />
+    <Content Include="scripts\extern\js\moment\locale\uz.js" />
+    <Content Include="scripts\extern\js\moment\locale\vi.js" />
+    <Content Include="scripts\extern\js\moment\locale\x-pseudo.js" />
+    <Content Include="scripts\extern\js\moment\locale\yo.js" />
+    <Content Include="scripts\extern\js\moment\locale\zh-cn.js" />
+    <Content Include="scripts\extern\js\moment\locale\zh-hk.js" />
+    <Content Include="scripts\extern\js\moment\locale\zh-tw.js" />
+    <Content Include="scripts\extern\js\moment\min\locales.js" />
+    <Content Include="scripts\extern\js\moment\min\locales.min.js" />
+    <Content Include="scripts\extern\js\moment\min\moment-with-locales.js" />
+    <Content Include="scripts\extern\js\moment\min\moment-with-locales.min.js" />
+    <Content Include="scripts\extern\js\moment\min\moment.min.js" />
+    <Content Include="scripts\extern\js\moment\min\tests.js" />
+    <Content Include="scripts\extern\js\moment\moment.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\check-overflow.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\date-from-array.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\from-anything.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\from-array.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\from-object.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\from-string-and-array.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\from-string-and-format.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\from-string.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\local.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\parsing-flags.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\utc.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\create\valid.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\abs.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\add-subtract.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\as.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\bubble.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\constructor.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\create.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\duration.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\get.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\humanize.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\iso-string.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\prototype.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\duration\valid.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\format\format.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\base-config.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\calendar.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\constructor.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\en.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\formats.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\invalid.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\lists.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\locale.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\locales.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\ordinal.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\pre-post-format.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\prototype.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\relative.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\locale\set.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\add-subtract.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\calendar.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\clone.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\compare.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\constructor.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\creation-data.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\diff.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\format.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\from.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\get-set.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\locale.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\min-max.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\moment.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\now.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\prototype.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\start-end-of.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\to-type.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\to.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\moment\valid.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\parse\regex.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\parse\token.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\aliases.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\constants.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\day-of-month.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\day-of-week.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\day-of-year.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\hour.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\millisecond.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\minute.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\month.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\offset.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\priorities.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\quarter.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\second.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\timestamp.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\timezone.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\units.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\week-calendar-utils.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\week-year.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\week.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\units\year.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\abs-ceil.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\abs-floor.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\abs-round.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\compare-arrays.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\defaults.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\deprecate.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\extend.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\has-own-prop.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\hooks.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\index-of.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\is-array.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\is-date.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\is-function.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\is-number.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\is-object-empty.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\is-object.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\is-undefined.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\keys.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\map.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\some.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\to-int.js" />
+    <Content Include="scripts\extern\js\moment\src\lib\utils\zero-fill.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\af.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ar-dz.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ar-kw.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ar-ly.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ar-ma.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ar-sa.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ar-tn.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ar.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\az.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\be.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\bg.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\bn.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\bo.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\br.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\bs.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ca.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\cs.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\cv.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\cy.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\da.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\de-at.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\de-ch.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\de.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\dv.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\el.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\en-au.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\en-ca.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\en-gb.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\en-ie.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\en-nz.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\eo.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\es-do.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\es.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\et.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\eu.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\fa.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\fi.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\fo.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\fr-ca.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\fr-ch.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\fr.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\fy.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\gd.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\gl.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\gom-latn.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\he.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\hi.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\hr.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\hu.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\hy-am.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\id.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\is.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\it.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ja.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\jv.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ka.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\kk.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\km.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\kn.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ko.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ky.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\lb.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\lo.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\lt.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\lv.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\me.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\mi.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\mk.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ml.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\mr.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ms-my.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ms.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\my.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\nb.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ne.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\nl-be.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\nl.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\nn.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\pa-in.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\pl.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\pt-br.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\pt.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ro.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ru.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\sd.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\se.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\si.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\sk.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\sl.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\sq.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\sr-cyrl.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\sr.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ss.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\sv.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\sw.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ta.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\te.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\tet.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\th.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\tl-ph.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\tlh.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\tr.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\tzl.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\tzm-latn.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\tzm.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\uk.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\ur.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\uz-latn.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\uz.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\vi.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\x-pseudo.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\yo.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\zh-cn.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\zh-hk.js" />
+    <Content Include="scripts\extern\js\moment\src\locale\zh-tw.js" />
+    <Content Include="scripts\extern\js\moment\src\moment.js" />
+    <Content Include="scripts\extern\js\moment\templates\default.js" />
+    <Content Include="scripts\extern\js\moment\templates\locale-header.js" />
+    <Content Include="scripts\extern\js\moment\templates\test-header.js" />
+    <Content Include="scripts\extern\js\velocity\Gruntfile.js" />
+    <Content Include="scripts\extern\js\velocity\test\bluebird.js" />
+    <Content Include="scripts\extern\js\velocity\test\index.html" />
+    <Content Include="scripts\extern\js\velocity\test\jquery-1.12.4.js" />
+    <Content Include="scripts\extern\js\velocity\test\q.js" />
+    <Content Include="scripts\extern\js\velocity\test\qunit-1.14.0.css" />
+    <Content Include="scripts\extern\js\velocity\test\qunit-1.14.0.js" />
+    <Content Include="scripts\extern\js\velocity\test\qunit-2.0.1.css" />
+    <Content Include="scripts\extern\js\velocity\test\qunit-2.0.1.js" />
+    <Content Include="scripts\extern\js\velocity\test\when.js" />
+    <Content Include="scripts\extern\js\velocity\test\zepto.js" />
+    <Content Include="scripts\extern\js\velocity\velocity.js" />
+    <Content Include="scripts\extern\js\velocity\velocity.min.js" />
+    <Content Include="scripts\extern\js\velocity\velocity.ui.js" />
+    <Content Include="scripts\extern\js\velocity\velocity.ui.min.js" />
+    <Content Include="Views\enrollactivity.html" />
+    <Content Include="Views\manageactivity.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\EnrollmentController.cs" />
+    <Compile Include="Controllers\ActivityController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EnrollmentModel.cs" />
+    <Compile Include="Models\PeriodModel.cs" />
+    <Compile Include="Models\ActivityModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="scripts\extern\js\angular\.bower.json" />
+    <Content Include="scripts\extern\js\angular\angular.min.js.gzip" />
+    <Content Include="scripts\extern\js\angular\angular.min.js.map" />
+    <Content Include="scripts\extern\js\angular\bower.json" />
+    <Content Include="scripts\extern\js\angular\LICENSE.md" />
+    <Content Include="scripts\extern\js\angular\package.json" />
+    <Content Include="scripts\extern\js\angular\README.md" />
+    <Content Include="scripts\extern\js\bourbon\.bower.json" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_border-color.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_border-radius.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_border-style.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_border-width.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_buttons.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_clearfix.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_ellipsis.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_font-stacks.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_hide-text.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_margin.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_padding.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_position.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_prefixer.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_retina-image.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_size.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_text-inputs.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_timing-functions.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_triangle.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\addons\_word-wrap.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_animation.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_appearance.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_backface-visibility.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_background-image.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_background.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_border-image.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_calc.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_columns.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_filter.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_flex-box.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_font-face.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_font-feature-settings.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_hidpi-media-query.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_hyphens.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_image-rendering.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_keyframes.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_linear-gradient.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_perspective.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_placeholder.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_radial-gradient.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_selection.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_text-decoration.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_transform.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_transition.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\css3\_user-select.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_assign-inputs.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_contains-falsy.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_contains.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_is-length.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_is-light.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_is-number.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_is-size.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_modular-scale.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_px-to-em.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_px-to-rem.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_shade.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_strip-units.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_tint.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_transition-property-name.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\functions\_unpack.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_convert-units.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_directional-values.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_font-source-declaration.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_gradient-positions-parser.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_linear-angle-parser.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_linear-gradient-parser.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_linear-positions-parser.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_linear-side-corner-parser.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_radial-arg-parser.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_radial-gradient-parser.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_radial-positions-parser.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_render-gradients.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_shape-size-stripper.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\helpers\_str-to-num.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\settings\_asset-pipeline.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\settings\_prefixer.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\settings\_px-to-em.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\_bourbon-deprecated-upcoming.scss" />
+    <Content Include="scripts\extern\js\bourbon\app\assets\stylesheets\_bourbon.scss" />
+    <Content Include="scripts\extern\js\bourbon\bower.json" />
+    <Content Include="scripts\extern\js\bourbon\LICENSE.md" />
+    <Content Include="scripts\extern\js\bourbon\README.md" />
+    <Content Include="scripts\extern\js\jquery\.bower.json" />
+    <Content Include="scripts\extern\js\jquery\bower.json" />
+    <Content Include="scripts\extern\js\jquery\dist\jquery.min.map" />
+    <Content Include="scripts\extern\js\jquery\dist\jquery.slim.min.map" />
+    <Content Include="scripts\extern\js\jquery\external\sizzle\dist\sizzle.min.map" />
+    <Content Include="scripts\extern\js\jquery\README.md" />
+    <Content Include="scripts\extern\js\jquery\src\.eslintrc.json" />
+    <Content Include="scripts\extern\js\lumx\.bower.json" />
+    <Content Include="scripts\extern\js\lumx\bower.json" />
+    <Content Include="scripts\extern\js\lumx\build.sh" />
+    <Content Include="scripts\extern\js\lumx\core\scss\animations\_ripple.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\animations\_spin.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\base\_colors.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\base\_flexbox.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\base\_images.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\base\_page.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\base\_paragraph.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\base\_typography.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\generic\_box-sizing.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\generic\_normalize.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\generic\_reset.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\objects\_bare-list.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\objects\_divider.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\objects\_scroll-mask.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\objects\_z-depth.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\settings\_colors.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\settings\_defaults.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\settings\_responsive.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\tools\_mixins.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\tools\_responsive.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\tools\_widths.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\trumps\_helpers.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\trumps\_spacing.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\trumps\_widths-responsive.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\trumps\_widths.scss" />
+    <Content Include="scripts\extern\js\lumx\core\scss\_lumx.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="scripts\extern\js\lumx\dist\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="scripts\extern\js\lumx\dist\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="scripts\extern\js\lumx\dist\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\animations\_ripple.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\animations\_spin.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\base\_colors.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\base\_flexbox.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\base\_images.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\base\_page.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\base\_paragraph.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\base\_typography.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\generic\_box-sizing.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\generic\_normalize.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\generic\_reset.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\chip.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_button.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_card.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_checkbox.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_data-table.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_date-picker.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_dialog.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_dropdown.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_fab.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_file-input.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_icon.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_list.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_notification.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_progress.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_radio-button.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_ripple.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_search-filter.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_select.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_stepper.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_switch.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_tabs.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_text-field.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_toolbar.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\modules\_tooltip.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\objects\_bare-list.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\objects\_divider.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\objects\_scroll-mask.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\objects\_z-depth.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\settings\_colors.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\settings\_defaults.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\settings\_responsive.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\tools\_mixins.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\tools\_responsive.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\tools\_widths.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\trumps\_helpers.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\trumps\_spacing.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\trumps\_widths-responsive.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\trumps\_widths.scss" />
+    <Content Include="scripts\extern\js\lumx\dist\scss\_lumx.scss" />
+    <Content Include="scripts\extern\js\lumx\dlaunch.sh" />
+    <Content Include="scripts\extern\js\lumx\modules\button\scss\_button.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\card\scss\_card.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\checkbox\scss\_checkbox.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\chip\scss\chip.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\data-table\scss\_data-table.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\date-picker\scss\_date-picker.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\dialog\scss\_dialog.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\dropdown\scss\_dropdown.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\fab\scss\_fab.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\file-input\scss\_file-input.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\icon\scss\_icon.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\list\scss\_list.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\notification\scss\_notification.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\progress\scss\_progress.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\radio-button\scss\_radio-button.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\ripple\scss\_ripple.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\search-filter\scss\_search-filter.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\select\scss\_select.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\stepper\scss\_stepper.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\switch\scss\_switch.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\tabs\scss\_tabs.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\text-field\scss\_text-field.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\toolbar\scss\_toolbar.scss" />
+    <Content Include="scripts\extern\js\lumx\modules\tooltip\scss\_tooltip.scss" />
+    <Content Include="scripts\extern\js\mdi\.bower.json" />
+    <Content Include="scripts\extern\js\mdi\bower.json" />
+    <Content Include="scripts\extern\js\mdi\css\materialdesignicons.css.map" />
+    <Content Include="scripts\extern\js\mdi\css\materialdesignicons.min.css.map" />
+    <Content Include="scripts\extern\js\mdi\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="scripts\extern\js\mdi\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="scripts\extern\js\mdi\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="scripts\extern\js\mdi\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="scripts\extern\js\mdi\scss\materialdesignicons.scss" />
+    <Content Include="scripts\extern\js\mdi\scss\_animated.scss" />
+    <Content Include="scripts\extern\js\mdi\scss\_core.scss" />
+    <Content Include="scripts\extern\js\mdi\scss\_extras.scss" />
+    <Content Include="scripts\extern\js\mdi\scss\_functions.scss" />
+    <Content Include="scripts\extern\js\mdi\scss\_icons.scss" />
+    <Content Include="scripts\extern\js\mdi\scss\_path.scss" />
+    <Content Include="scripts\extern\js\mdi\scss\_variables.scss" />
+    <Content Include="scripts\extern\js\moment\.bower.json" />
+    <Content Include="scripts\extern\js\moment\bower.json" />
+    <Content Include="scripts\extern\js\moment\CHANGELOG.md" />
+    <Content Include="scripts\extern\js\moment\LICENSE" />
+    <Content Include="scripts\extern\js\moment\README.md" />
+    <Content Include="scripts\extern\js\velocity\.bower.json" />
+    <Content Include="scripts\extern\js\velocity\.editorconfig" />
+    <Content Include="scripts\extern\js\velocity\.gitignore" />
+    <Content Include="scripts\extern\js\velocity\bower.json" />
+    <Content Include="scripts\extern\js\bootstrap\.bower.json" />
+    <Content Include="scripts\extern\js\bootstrap\bower.json" />
+    <Content Include="scripts\extern\js\bootstrap\CHANGELOG.md" />
+    <Content Include="scripts\extern\js\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="scripts\extern\js\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="scripts\extern\js\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="scripts\extern\js\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="scripts\extern\js\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\extern\js\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="scripts\extern\js\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="scripts\extern\js\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="scripts\extern\js\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\extern\js\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="scripts\extern\js\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="scripts\extern\js\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="scripts\extern\js\bootstrap\Gemfile" />
+    <Content Include="scripts\extern\js\bootstrap\Gemfile.lock" />
+    <Content Include="scripts\extern\js\bootstrap\grunt\.jshintrc" />
+    <Content Include="scripts\extern\js\bootstrap\grunt\configBridge.json" />
+    <Content Include="scripts\extern\js\bootstrap\grunt\npm-shrinkwrap.json" />
+    <Content Include="scripts\extern\js\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="scripts\extern\js\bootstrap\ISSUE_TEMPLATE.md" />
+    <Content Include="scripts\extern\js\bootstrap\js\.jscsrc" />
+    <Content Include="scripts\extern\js\bootstrap\js\.jshintrc" />
+    <Content Include="scripts\extern\js\bootstrap\less\.csscomb.json" />
+    <Content Include="scripts\extern\js\bootstrap\less\.csslintrc" />
+    <Content Include="scripts\extern\js\bootstrap\less\alerts.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\badges.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\bootstrap.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\breadcrumbs.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\button-groups.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\buttons.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\carousel.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\close.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\code.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\component-animations.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\dropdowns.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\forms.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\glyphicons.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\grid.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\input-groups.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\jumbotron.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\labels.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\list-group.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\media.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\alerts.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\buttons.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\center-block.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\forms.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\gradients.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\grid.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\image.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\labels.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\list-group.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\opacity.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\pagination.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\panels.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\reset-text.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\resize.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\size.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\table-row.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\modals.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\navbar.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\navs.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\normalize.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\pager.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\pagination.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\panels.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\popovers.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\print.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\progress-bars.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\responsive-embed.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\responsive-utilities.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\scaffolding.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\tables.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\theme.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\thumbnails.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\tooltip.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\type.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\utilities.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\variables.less" />
+    <Content Include="scripts\extern\js\bootstrap\less\wells.less" />
+    <Content Include="scripts\extern\js\bootstrap\LICENSE" />
+    <Content Include="scripts\extern\js\bootstrap\nuget\bootstrap.less.nuspec" />
+    <Content Include="scripts\extern\js\bootstrap\nuget\bootstrap.nuspec" />
+    <Content Include="scripts\extern\js\bootstrap\nuget\MyGet.ps1" />
+    <Content Include="scripts\extern\js\bootstrap\package.json" />
+    <Content Include="scripts\extern\js\bootstrap\README.md" />
+    <Content Include="scripts\extern\js\font-awesome\.bower.json" />
+    <Content Include="scripts\extern\js\font-awesome\.gitignore" />
+    <Content Include="scripts\extern\js\font-awesome\.npmignore" />
+    <Content Include="scripts\extern\js\font-awesome\bower.json" />
+    <Content Include="scripts\extern\js\font-awesome\css\font-awesome.css.map" />
+    <Content Include="scripts\extern\js\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="scripts\extern\js\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="scripts\extern\js\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="scripts\extern\js\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="scripts\extern\js\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="scripts\extern\js\font-awesome\less\animated.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\bordered-pulled.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\core.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\fixed-width.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\font-awesome.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\icons.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\larger.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\list.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\mixins.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\path.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\rotated-flipped.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\screen-reader.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\stacked.less" />
+    <Content Include="scripts\extern\js\font-awesome\less\variables.less" />
+    <Content Include="scripts\extern\js\font-awesome\scss\font-awesome.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_animated.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_core.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_icons.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_larger.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_list.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_mixins.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_path.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_stacked.scss" />
+    <Content Include="scripts\extern\js\font-awesome\scss\_variables.scss" />
+    <Content Include="scripts\extern\js\angular-route\.bower.json" />
+    <Content Include="scripts\extern\js\angular-route\angular-route.min.js.map" />
+    <Content Include="scripts\extern\js\angular-route\bower.json" />
+    <Content Include="scripts\extern\js\angular-route\LICENSE.md" />
+    <Content Include="scripts\extern\js\angular-route\package.json" />
+    <Content Include="scripts\extern\js\angular-route\README.md" />
+    <Content Include="scripts\extern\js\angular-ui-router\.bower.json" />
+    <Content Include="scripts\extern\js\angular-ui-router\bower.json" />
+    <Content Include="scripts\extern\js\angular-ui-router\CHANGELOG.md" />
+    <Content Include="scripts\extern\js\angular-ui-router\CONTRIBUTING.md" />
+    <Content Include="scripts\extern\js\angular-ui-router\DOCS.md" />
+    <Content Include="scripts\extern\js\angular-ui-router\ISSUE_TEMPLATE.md" />
+    <Content Include="scripts\extern\js\angular-ui-router\LICENSE" />
+    <Content Include="scripts\extern\js\angular-ui-router\migrate\migrate.json" />
+    <Content Include="scripts\extern\js\angular-ui-router\README.md" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\angular-ui-router.js.map" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\angular-ui-router.min.js.map" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\resolveService.js.map" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\resolveService.min.js.map" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\stateEvents.js.map" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\stateEvents.min.js.map" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\ui-router-angularjs.js.map" />
+    <Content Include="scripts\extern\js\angular-ui-router\release\ui-router-angularjs.min.js.map" />
+    <Content Include="scripts\extern\js\angular-ui-router\tslint.json" />
+    <Content Include="scripts\extern\js\angular-ui-router\yarn.lock" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MP.Activity\MP.Activity.csproj">
+      <Project>{b2d02e15-935e-4c68-9c27-4b26a7a34f03}</Project>
+      <Name>MP.Activity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="scripts\extern\js\moment\moment.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55040</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55040/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

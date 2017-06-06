@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html ng-app="ActivityApp">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="scripts/extern/js/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="scripts/extern/js/lumx/dist/lumx.css">
+    <link rel="stylesheet" href="scripts/txrx.css" />
+
+    <link rel="stylesheet" href="scripts/extern/js/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="scripts/css/Navigation-Clean1.css">
+    <link rel="stylesheet" href="scripts/css/styles.css">
+
+</head>
+<body ng-controller="ActivityMainController">
+    <div style="height: 100vh;">
+        <div>
+            <nav class="navbar navbar-default navigation-clean">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand navbar-link" href="#">Activities</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div>
+            <div  ui-view="main" class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">Events</a></li>
+                                <li><a href="#tab-2" role="tab" data-toggle="tab">Manage Events</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                    <p>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>Event naam</th>
+                                                    <th>Event omschrijving</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody ng-repeat="activity in activities">
+                                                <tr data-toggle="collapse" data-target="#slots_{{activity.id}}">
+                                                    <td></td>
+                                                    <td>{{activity.name}}</td>
+                                                    <td>{{activity.description}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <a class="btn btn-small" role="button" title="Sla keuze op" ng-click="addEnrollment(activity.id)">
+                                                            <i class="fa fa-save"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <div id="slots_{{activity.id}}" class="collapse">
+                                                            <div ng-repeat="slot in activity.slots | orderBy:slot.start">
+                                                                <div class="radio">
+                                                                    <label><input type="radio" name="{{activity.id}}_opt" ng-checked="getEnrollmentForSignup(activity.id, slot.id)" ng-click="selectSlot(slot)">{{slot.start | date:'HH:mm'}} - {{slot.end | date:'HH:mm'}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </p>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="tab-2">
+                                    <p>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <a class="btn btn-small" role="button" data-toggle="modal" data-target="#activitydialog" title="Toevoegen" ng-click="addEvent()">
+                                                            <i class="fa fa-plus"></i>
+                                                        </a>
+                                                    </th>
+                                                    <th>Event naam</th>
+                                                    <th>Event omschrijving</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody ng-repeat="activity in activities">
+                                                <tr data-toggle="collapse" data-target="#slots_{{activity.id}}">
+                                                    <td>
+                                                        <a class="btn btn-small" role="button" data-toggle="modal" data-target="#activitydialog" ng-click="modifyEvent(activity)">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                        <a class="btn btn-small" role="button" ng-click="deleteActivity(activity)">
+                                                            <i class="fa fa-remove"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>{{activity.name}}</td>
+                                                    <td>{{activity.description}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <div id="slots_{{activity.id}}" class="collapse">
+                                                            <div ng-repeat="slot in activity.slots | orderBy:slot.start">
+                                                                <div class="radio">
+                                                                    <label><input type="radio" name="{{activity.id}}_opt">{{slot.start | date:'HH:mm'}} - {{slot.end | date:'HH:mm'}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" class="modal fade" id="activitydialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">{{activitytitle}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="eventname">Naam</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" id="eventname" class="col-md-10" ng-model="selectedEvent.name" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Omschrijving</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="col-md-10" ng-model="selectedEvent.description" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Vanaf</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="col-md-10" ng-model="selectedEvent.lifetime.start" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Tot</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="col-md-10" ng-model="selectedEvent.lifetime.end" />
+                            </div>
+                        </div>
+                        <div class="well">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <a class="btn btn-small" role="button" title="Toevoegen" ng-click="addSlot()">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                        </th>
+                                        <th>Tijdvak(ken)</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-repeat="slot in selectedEvent.slots">
+                                    <tr>
+                                        <td>
+                                            <a class="btn btn-small" role="button" title="Wijzigen" ng-click="modifySlot(slot)">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a class="btn btn-small" role="button" title="Verwijderen" ng-click="deleteSlot(slot)">
+                                                <i class="fa fa-remove"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <div ng-show="!isSlotEdit">{{slot.start}}</div>
+                                            <div ng-show="isSlotEdit"><input type="text" id="slot_start" class="col-md-10" ng-model="slot.start" /></div>
+                                        </td>
+                                        <td>
+                                            <div ng-show="!isSlotEdit">{{slot.end}}</div>
+                                            <div ng-show="isSlotEdit"><input type="text" id="slot_end" class="col-md-10" ng-model="slot.end" /></div>
+                                            /
+                                        </td>
+
+
+                                        </td>
+
+
+                                    </tr>
+
+                                    <!--<tr>
+                                        <td colspan="3">
+                                            <div id="slots_{{signup.id}}" class="collapse">
+                                                <div ng-repeat="slot in signup.slots | orderBy:slot.start">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="{{signup.id}}_opt">{{slot.start | date:'HH:mm'}} - {{slot.end | date:'HH:mm'}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="button" ng-click="saveEvent()" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="alert" style="position: absolute; right:10px; bottom: 10px; width: 600px;" id="myalert" class="alert alert-info"></div>
+
+    <script src="scripts/extern/js/jquery/dist/jquery.js"></script>
+    <script src="scripts/extern/js/angular/angular.js"></script>
+    <script src="scripts/extern/js/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script src="scripts/extern/js/jquery/dist/jquery.js"></script>
+    <script src="scripts/extern/js/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="scripts/extern/js/velocity/velocity.js"></script>
+    <script src="scripts/extern/js/moment/min/moment-with-locales.js"></script>
+    <script src="scripts/extern/js/lumx/dist/lumx.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/activityController.js"></script>
+    <!--<script src="scripts/route/routeController.js"></script>-->
+</body>
+</html>

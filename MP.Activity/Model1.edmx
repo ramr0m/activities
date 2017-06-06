@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ActivitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="lifetime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivitySlot">
+          <Key>
+            <PropertyRef Name="activity" />
+            <PropertyRef Name="slot" />
+          </Key>
+          <Property Name="activity" Type="int" Nullable="false" />
+          <Property Name="slot" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Enrollment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="reg" Type="int" Nullable="false" />
+          <Property Name="timeslot" Type="int" Nullable="false" />
+          <Property Name="user" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="start" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="end" Type="datetime2" Precision="7" />
+        </EntityType>
+        <Association Name="FK_Enrollment_Period">
+          <End Role="Period" Type="Self.Period" Multiplicity="1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="timeslot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enrollment_SignUp">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="reg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignUp_Period">
+          <End Role="Period" Type="Self.Period" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="lifetime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignUpSlots_Period">
+          <End Role="Period" Type="Self.Period" Multiplicity="1" />
+          <End Role="ActivitySlot" Type="Self.ActivitySlot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivitySlot">
+              <PropertyRef Name="slot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignUpSlots_SignUp">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="ActivitySlot" Type="Self.ActivitySlot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivitySlot">
+              <PropertyRef Name="activity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ActivitiesModelStoreContainer">
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivitySlot" EntityType="Self.ActivitySlot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enrollment" EntityType="Self.Enrollment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Period" EntityType="Self.Period" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Enrollment_Period" Association="Self.FK_Enrollment_Period">
+            <End Role="Period" EntitySet="Period" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enrollment_SignUp" Association="Self.FK_Enrollment_SignUp">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SignUp_Period" Association="Self.FK_SignUp_Period">
+            <End Role="Period" EntitySet="Period" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SignUpSlots_Period" Association="Self.FK_SignUpSlots_Period">
+            <End Role="Period" EntitySet="Period" />
+            <End Role="ActivitySlot" EntitySet="ActivitySlot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SignUpSlots_SignUp" Association="Self.FK_SignUpSlots_SignUp">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="ActivitySlot" EntitySet="ActivitySlot" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ActivitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ActivitiesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activity" EntityType="ActivitiesModel.Activity" />
+          <EntitySet Name="Enrollment" EntityType="ActivitiesModel.Enrollment" />
+          <EntitySet Name="Period" EntityType="ActivitiesModel.Period" />
+          <AssociationSet Name="FK_Enrollment_SignUp" Association="ActivitiesModel.FK_Enrollment_SignUp">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SignUp_Period" Association="ActivitiesModel.FK_SignUp_Period">
+            <End Role="Period" EntitySet="Period" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enrollment_Period" Association="ActivitiesModel.FK_Enrollment_Period">
+            <End Role="Period" EntitySet="Period" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="ActivitySlot" Association="ActivitiesModel.ActivitySlot">
+            <End Role="Period" EntitySet="Period" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lifetime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Enrollment" Relationship="ActivitiesModel.FK_Enrollment_SignUp" FromRole="Activity" ToRole="Enrollment" />
+          <NavigationProperty Name="Period" Relationship="ActivitiesModel.FK_SignUp_Period" FromRole="Activity" ToRole="Period" />
+          <NavigationProperty Name="Period1" Relationship="ActivitiesModel.ActivitySlot" FromRole="Activity" ToRole="Period" />
+        </EntityType>
+        <EntityType Name="Enrollment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reg" Type="Int32" Nullable="false" />
+          <Property Name="timeslot" Type="Int32" Nullable="false" />
+          <Property Name="user" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activity" Relationship="ActivitiesModel.FK_Enrollment_SignUp" FromRole="Enrollment" ToRole="Activity" />
+          <NavigationProperty Name="Period" Relationship="ActivitiesModel.FK_Enrollment_Period" FromRole="Enrollment" ToRole="Period" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="start" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="end" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Activity" Relationship="ActivitiesModel.FK_SignUp_Period" FromRole="Period" ToRole="Activity" />
+          <NavigationProperty Name="Enrollment" Relationship="ActivitiesModel.FK_Enrollment_Period" FromRole="Period" ToRole="Enrollment" />
+          <NavigationProperty Name="Activity1" Relationship="ActivitiesModel.ActivitySlot" FromRole="Period" ToRole="Activity" />
+        </EntityType>
+        <Association Name="FK_Enrollment_SignUp">
+          <End Type="ActivitiesModel.Activity" Role="Activity" Multiplicity="1" />
+          <End Type="ActivitiesModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="reg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignUp_Period">
+          <End Type="ActivitiesModel.Period" Role="Period" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ActivitiesModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="lifetime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enrollment_Period">
+          <End Type="ActivitiesModel.Period" Role="Period" Multiplicity="1" />
+          <End Type="ActivitiesModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="timeslot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ActivitySlot">
+          <End Type="ActivitiesModel.Period" Role="Period" Multiplicity="*" />
+          <End Type="ActivitiesModel.Activity" Role="Activity" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ActivitiesModelStoreContainer" CdmEntityContainer="ActivitiesEntities">
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="ActivitiesModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="lifetime" ColumnName="lifetime" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enrollment">
+            <EntityTypeMapping TypeName="ActivitiesModel.Enrollment">
+              <MappingFragment StoreEntitySet="Enrollment">
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="timeslot" ColumnName="timeslot" />
+                <ScalarProperty Name="reg" ColumnName="reg" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Period">
+            <EntityTypeMapping TypeName="ActivitiesModel.Period">
+              <MappingFragment StoreEntitySet="Period">
+                <ScalarProperty Name="end" ColumnName="end" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ActivitySlot" TypeName="ActivitiesModel.ActivitySlot" StoreEntitySet="ActivitySlot">
+            <EndProperty Name="Activity">
+              <ScalarProperty Name="Id" ColumnName="activity" />
+            </EndProperty>
+            <EndProperty Name="Period">
+              <ScalarProperty Name="Id" ColumnName="slot" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
