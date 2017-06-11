@@ -17,19 +17,29 @@
             }
         })
         .state("manage", {
-            url: '/activity/manage/:id',
+            url: '/activity/manage',
             sticky: true,
             views: {
                 "main": {
                     templateUrl: "/views/manageactivity.html",
-                    controller: "activityController"
+                    controller: "activityManageController"
+                }
+            }
+        })
+        .state("report", {
+            url: '/activity/report/:id',
+            sticky: true,
+            views: {
+                "main": {
+                    templateUrl: "/views/reportactivity.html",
+                    controller: "activityReportController"
                 }
             }
         });
     });
 
 
-    app.factory("activityService", ['$http', '$log', function DownloadService($http, $log) {
+    app.factory("activityService", ['$http', '$log', function ActivityService($http, $log) {
         return {
             getActivity: function (id) {
                 return $http.get('/api/activity/' + id)
@@ -94,28 +104,6 @@
 
 
 
-
-        function loadEvents() {
-            activityService.getAll().then(function (response) {
-                $scope.activities = response.data;
-                $log.log("events loaded.");
-            }).catch(function (fallback) {
-                $log.log(fallback);
-            });
-        }
-
-        $('#activitydialog').on('hidden.bs.modal', function () {
-            loadEvents();
-        })
-
-        $(function () {
-            loadEvents();
-
-
-
-
-
-        });
     }]);
 
     app.factory("alertService", ['$http', '$log', '$timeout', function AlertService($http, $log, $timeout) {

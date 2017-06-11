@@ -1,36 +1,9 @@
 ﻿(function () {
     var app = angular.module('ActivityApp');
 
-    app.controller('activityController', ['$http', '$log', '$scope', '$stateParams', 'activityService', 'alertService', function ($http, $log, $scope, $stateParams, activityService, alertService) {
+    app.controller('activityManageController', ['$http', '$log', '$scope', '$stateParams', 'activityService', 'alertService', function ($http, $log, $scope, $stateParams, activityService, alertService) {
         var selectedId = $stateParams.id;
         
-
-
-        $scope.addEnrollment = function (activity_id) {
-            activityService.getEmtpyEnrollment().then(function (response) {
-                var enrollment = response.data;
-                enrollment.reg = activity_id;
-                enrollment.timeslot = $scope.selectedSlot.id;
-                enrollment.user = 999;
-
-                activityService.updateEnrollment(enrollment).then(function (response_enroll) {
-
-                    alertService.show('info', "Ingeschreven!");
-
-                    //loadEvents();
-
-                }).catch(function (fallback_enroll) {
-                    $log.log(fallback_enroll);
-                });
-
-
-                //$scope.$parent.loadEvents();
-
-                getActivity(activity_id);
-            }).catch(function (fallback) {
-                $log.log(fallback);
-            });
-        }
 
         $scope.addEvent = function () {
 
@@ -82,7 +55,7 @@
         $scope.deleteActivity = function (activity) {
 
             activityService.deleteEvent(activity.id).then(function (response) {
-                alertService.show('info', "Event verwijderd");
+                alertService.show('info', "Event deleted");
                 loadEvents();
             }).catch(function (fallback) {
                 $log.log(fallback);
@@ -110,19 +83,28 @@
 
             activityService.getActivity(id).then(function (response) {
                 $scope.selectedActivity = response.data[0];
-
+                $scope.activities = response.data;
             }).catch(function (fallback) {
                 $log.log(fallback);
             });
 
         }
 
+        function loadEvents() {
+            activityService.getAll().then(function (response) {
+                $scope.activities = response.data;
+                $log.log("events loaded.");
+            }).catch(function (fallback) {
+                $log.log(fallback);
+            });
+        }
+
+        $('#activitydialog').on('hidden.bs.modal', function () {
+            loadEvents();
+        })
 
         $(function () {
-            getActivity(selectedId);
-
-
-
+            loadEvents();
 
 
         });

@@ -30,7 +30,7 @@
                     <div id="slots_{{activity.id}}" class="collapse">
                         <div ng-repeat="slot in activity.slots | orderBy:slot.start">
                             <div class="radio">
-                                <label><input type="radio" name="{{activity.id}}_opt">{{slot.start | date:'HH:mm'}} - {{slot.end | date:'HH:mm'}}</label>
+                                <label><input type="radio" name="{{activity.id}}_opt">{{slot.start | date:'HH:mm'}} - {{slot.end | date:'yyyy:MM:HH:mm'}}</label>
                             </div>
                         </div>
                     </div>

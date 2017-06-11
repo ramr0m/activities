@@ -94,7 +94,9 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="scripts\activityManageController.js" />
     <Content Include="scripts\activityController.js" />
+    <Content Include="scripts\activityReportController.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\css\Navigation-Clean1.css" />
     <Content Include="scripts\css\styles.css" />
@@ -697,6 +699,7 @@
     <Content Include="scripts\extern\js\velocity\velocity.ui.min.js" />
     <Content Include="Views\enrollactivity.html" />
     <Content Include="Views\manageactivity.html" />
+    <Content Include="Views\reportactivity.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

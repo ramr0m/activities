@@ -1,0 +1,38 @@
+﻿<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                </th>
+                <th>Event naamreport</th>
+                <th>Event omschrijving</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="activity in activities">
+            <tr data-toggle="collapse" data-target="#slots_{{activity.id}}">
+                <td>
+                    <a class="btn btn-small" role="button" data-toggle="modal" data-target="#activitydialog" ng-click="modifyEvent(activity)">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a class="btn btn-small" role="button" ng-click="deleteActivity(activity)">
+                        <i class="fa fa-remove"></i>
+                    </a>
+                </td>
+                <td>{{activity.name}}</td>
+                <td>{{activity.description}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <div id="slots_{{activity.id}}" class="collapse">
+                        <div ng-repeat="slot in activity.slots | orderBy:slot.start">
+                            <div class="radio">
+                                <label><input type="radio" name="{{activity.id}}_opt">{{slot.start | date:'HH:mm'}} - {{slot.end | date:'HH:mm'}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
