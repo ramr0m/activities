@@ -3,7 +3,7 @@
 
     app.controller('activityController', ['$http', '$log', '$scope', '$stateParams', 'activityService', 'alertService', function ($http, $log, $scope, $stateParams, activityService, alertService) {
         var selectedId = $stateParams.id;
-        
+        $scope.selectedSlot = null;
 
 
         $scope.addEnrollment = function (activity_id) {
