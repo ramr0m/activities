@@ -17,7 +17,7 @@
 
                     alertService.show('info', "Ingeschreven!");
 
-                    //loadEvents();
+                    getActivity(activity_id);
 
                 }).catch(function (fallback_enroll) {
                     $log.log(fallback_enroll);
@@ -26,7 +26,6 @@
 
                 //$scope.$parent.loadEvents();
 
-                getActivity(activity_id);
             }).catch(function (fallback) {
                 $log.log(fallback);
             });
@@ -105,11 +104,39 @@
 
         }
 
+        $scope.isSlotOccupied = function (slotid, selectedActivityId) {
+            for (i = 0; i < $scope.occupiedSlots.length; i++) {
+                if ($scope.occupiedSlots[i].timeslot === slotid && $scope.occupiedSlots[i].reg === parseInt(selectedActivityId))
+                    return true;
+            }
+        }
+
 
         function getActivity(id) {
 
             activityService.getActivity(id).then(function (response) {
                 $scope.selectedActivity = response.data[0];
+                
+
+                activityService.getEnrollment(id).then(function (responsE) {
+                    $scope.occupiedSlots = responsE.data;
+                    
+                    
+                    $scope.isEnrolledByCurrentUser = false;
+                    //var slots = $scope.selectedActivity.slots;
+                    //for (i = 0; i < slots.length; i++) {
+                    //    if (slots[i].reg === parseInt(selectedActivityId) && slots[i].user === "999"){
+                    //        $scope.isEnrolledByCurrentUser = true;
+                    //        break;
+                    //    }
+                    //}
+                    //loadEvents();
+                }).catch(function (fallbackE) {
+                    $log.log(fallbackE);
+                });
+
+
+
 
             }).catch(function (fallback) {
                 $log.log(fallback);
@@ -117,6 +144,22 @@
 
         }
 
+
+
+
+        $scope.getEnrollmentForActivity = function (activity_id, slot_id) {
+            activityService.getEnrollment(activity_id).then(function (response) {
+                var enrollments = response.data;
+                for (i = 0; i < enrollments.length; i++) {
+                    if (enrollments[i].timeslot === slot_id) return true;
+                }
+                return false;
+
+                //loadEvents();
+            }).catch(function (fallback) {
+                $log.log(fallback);
+            });
+        }
 
         $(function () {
             getActivity(selectedId);

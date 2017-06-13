@@ -17,7 +17,7 @@ namespace Activity.Web.Controllers
         }
 
         // GET api/<controller>/5
-        [Route("api/signup/{id}/enrollment")]
+        [Route("api/enrollment/activity/{id}")]
         [HttpGet]
         public IEnumerable<Models.EnrollmentModel> Get(int id)
         {

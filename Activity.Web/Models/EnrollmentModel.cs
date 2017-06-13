@@ -35,13 +35,6 @@ namespace Activity.Web.Models
                 this.reg = enrollment.reg;
                 this.timeslot = enrollment.timeslot;
                 this.user = enrollment.user;
-                //this.description = signup.description;
-                //this.lifetime = new PeriodModel(signup.Period);
-                //foreach (MP.Activity.Period slot in signup.Slots)
-                //{
-                //    if (this.slots == null) this.slots = new List<PeriodModel>();
-                //    this.slots.Add(new PeriodModel(slot));
-                //}
             }
 
         }

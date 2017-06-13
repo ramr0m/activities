@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module('ActivityApp', ['ui.router', 'lumx']);
+    var app = angular.module('ActivityApp', ['ui.router', 'lumx', 'angular.filter']);
 
     app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
@@ -69,9 +69,8 @@
                 return $http.post('/api/enrollment/', data);
             },
             getEnrollment: function (activity_id) {
-                return $http.get('/api/activity/' + activity_id + '/enrollment');
-            },
-
+                return $http.get('/api/enrollment/activity/' + activity_id);
+            }
 
         }
     }]);
@@ -87,20 +86,6 @@
             $scope.activitytitle = "Edit " + activity.name;
         }
 
-
-        $scope.getEnrollmentForActivity = function (activity_id, slot_id) {
-            activityService.getEnrollment(activity_id).then(function (response) {
-                var enrollments = response.data;
-                for (i = 0; i < enrollments.length; i++) {
-                    if (enrollments[i].timeslot === slot_id) return true;
-                }
-                return false;
-
-                //loadEvents();
-            }).catch(function (fallback) {
-                $log.log(fallback);
-            });
-        }
 
 
 

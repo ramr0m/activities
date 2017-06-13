@@ -16,6 +16,24 @@
         }
 
 
+
+
+
+        $scope.getEnrollmentForActivity = function (activity_id, slot_id) {
+            activityService.getEnrollment(activity_id).then(function (response) {
+                var enrollments = response.data;
+                for (i = 0; i < enrollments.length; i++) {
+                    if (enrollments[i].timeslot === slot_id) return true;
+                }
+                return false;
+
+                //loadEvents();
+            }).catch(function (fallback) {
+                $log.log(fallback);
+            });
+        }
+
+
         $(function () {
             getActivity(selectedId);
 

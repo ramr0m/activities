@@ -28,9 +28,10 @@
             <tr>
                 <td colspan="3">
                     <div id="slots_{{activity.id}}" class="collapse">
-                        <div ng-repeat="slot in activity.slots | orderBy:slot.start">
-                            <div class="radio">
-                                <label><input type="radio" name="{{activity.id}}_opt">{{slot.start | date:'HH:mm'}} - {{slot.end | date:'yyyy:MM:HH:mm'}}</label>
+                        <div ng-repeat="(key, value) in activity.slots | groupBy:'startDate'">
+                            {{ key | date:'dd-MM-yyyy' }}
+                            <div class="radio" ng-repeat="slot in value">
+                                <label><input type="radio" name="{{activity.id}}_opt">{{slot.start | date:'HH:mm'}} - {{slot.end | date:'HH:mm'}}</label>
                             </div>
                         </div>
                     </div>
@@ -96,8 +97,13 @@
                                     <th>Tijdvak(ken)</th>
                                 </tr>
                             </thead>
-                            <tbody ng-repeat="slot in selectedEvent.slots">
+                            <tbody ng-repeat="(key, value) in selectedEvent.slots | groupBy:'startDate'">
                                 <tr>
+                                    <td colspan="4">
+                                        {{ key | date:'dd-MM-yyyy' }}
+                                    </td>
+                                </tr>
+                                <tr ng-repeat="slot in value">
                                     <td>
                                         <a class="btn btn-small" role="button" title="Wijzigen" ng-click="modifySlot(slot)">
                                             <i class="fa fa-edit"></i>
@@ -116,7 +122,7 @@
                                         /
                                     </td>
 
-
+                                    <td>
                                     </td>
 
 

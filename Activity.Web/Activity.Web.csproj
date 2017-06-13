@@ -100,6 +100,9 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\css\Navigation-Clean1.css" />
     <Content Include="scripts\css\styles.css" />
+    <Content Include="scripts\extern\js\angular-filter\dist\angular-filter.js" />
+    <Content Include="scripts\extern\js\angular-filter\dist\angular-filter.min.js" />
+    <Content Include="scripts\extern\js\angular-filter\index.js" />
     <Content Include="scripts\extern\js\angular-route\angular-route.js" />
     <Content Include="scripts\extern\js\angular-route\angular-route.min.js" />
     <Content Include="scripts\extern\js\angular-route\index.js" />
@@ -1111,6 +1114,12 @@
     <Content Include="scripts\extern\js\angular-ui-router\release\ui-router-angularjs.min.js.map" />
     <Content Include="scripts\extern\js\angular-ui-router\tslint.json" />
     <Content Include="scripts\extern\js\angular-ui-router\yarn.lock" />
+    <Content Include="scripts\extern\js\angular-filter\.bower.json" />
+    <Content Include="scripts\extern\js\angular-filter\.bowerrc" />
+    <Content Include="scripts\extern\js\angular-filter\.travis.yml" />
+    <Content Include="scripts\extern\js\angular-filter\bower.json" />
+    <Content Include="scripts\extern\js\angular-filter\dist\angular-filter.zip" />
+    <Content Include="scripts\extern\js\angular-filter\license.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

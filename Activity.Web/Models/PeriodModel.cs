@@ -9,6 +9,7 @@ namespace Activity.Web.Models
     {
         public int id;
         public DateTime start;
+        public DateTime startDate;
         public DateTime? end;
 
         public PeriodModel()
@@ -22,6 +23,7 @@ namespace Activity.Web.Models
             {
                 id = period.Id;
                 start = period.start;
+                startDate = start.Date;
                 end = period.end;
             }
         }
